@@ -431,12 +431,15 @@
                         </select>
                     </div>
                     
-                    <!-- BOTÓN CTA VERDE NEÓN DE ALTO CONTRASTE --><button 
-                        type="submit" 
-                        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition duration-200 shadow-xl"
-                    >
-                        Guardar Frase Poderosa 🔮
-                    </button>
+                    <!-- BOTÓN CTA VERDE NEÓN DE ALTO CONTRASTE -->
+<button 
+    type="submit" 
+    id="submitPhraseBtn" 
+    disabled
+    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition duration-200 shadow-xl"
+>
+    Guardar Frase Poderosa 🔮
+</button>
                 </form>
                 
             </section>
@@ -478,6 +481,22 @@
             © 2025 Reflexiona Conmigo 💭. Todos los derechos reservados. | Estrategia Quiet Luxury & Aqua Fusion (Neon Edition).
         </footer>
     </div>
+    <script>
+    // Identificador de la aplicación (usado internamente por tu código)
+    const __app_id = 'PNUBA_REFLECT_APP'; 
+    
+    // Configuración real de Firebase
+    const __firebase_config = JSON.stringify({
+      apiKey: "AIzaSyCoTvWhZAnPqFmY3WZyGTEimCdMwPTzW9M",
+      authDomain: "reflexiona-conmigo.firebaseapp.com",
+      projectId: "reflexiona-conmigo",
+      storageBucket: "reflexiona-conmigo.firebasestorage.app",
+      messagingSenderId: "668985187627",
+      appId: "1:668985187627:web:e0ee24390b7fb3eabab96e"
+    });
+
+    const __initial_auth_token = null; 
+</script>
 
     <!-- Firebase Initialization and Scripting --><script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -514,6 +533,7 @@
         const exitIntentModal = document.getElementById('exitIntentModal');
         const closeModalBtn = document.getElementById('closeModal');
         const categoryFilters = document.getElementById('categoryFilters');
+        const submitPhraseBtn = document.getElementById('submitPhraseBtn');
 
         let allPhrasesData = []; // Para almacenar todas las frases (estáticas y dinámicas) para el filtrado.
 
@@ -535,7 +555,19 @@
                 } else {
                     userId = crypto.randomUUID(); 
                 }
-                isAuthReady = true;
+isAuthReady = true;
+                
+                // ⬇️ CÓDIGO AÑADIDO PARA DIAGNÓSTICO ⬇️
+                console.warn('DIAGNÓSTICO: Autenticación lista. Intentando habilitar botón.');
+                console.log('Estado de submitPhraseBtn:', submitPhraseBtn); // Verifica si es null
+
+                if (submitPhraseBtn) {
+                    submitPhraseBtn.disabled = false;
+                    console.log('BOTÓN HABILITADO CORRECTAMENTE.');
+                } else {
+                    console.error('ERROR: submitPhraseBtn es nulo. Revisar ID en HTML y JS.');
+                }
+                // ⬆️ FIN CÓDIGO AÑADIDO ⬆️
                 
                 // Intentar autenticación con token o anónima
                 try {
