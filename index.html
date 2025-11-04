@@ -3,343 +3,1091 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8714734075572031"
-     crossorigin="anonymous"></script>
-    <title>Reflexiona Conmigo 💭 | Frases de Desamor, Motivación y Crecimiento Personal</title>
-    <!-- Meta Keywords y Descripción para SEO Inicial -->
-    <meta name="description" content="Las mejores frases de amor, desamor y superación personal. Encuentra claridad y empoderamiento para tu crecimiento personal.">
-    <meta name="keywords" content="frases de desamor, motivación, superación, crecimiento personal, quiet luxury, reflexiona">
-
-    <!-- Carga de Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Carga de Google Fonts: Playfair Display (Serif Elegante) e Inter (Sans Legible) -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <title>Reflexiona Conmigo 💭 - UX Finalizado (Neón Mejorado)</title>
+    <!-- Carga de Tailwind CSS para un diseño moderno --><script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* Configuración de paleta de colores personalizada con Tailwind JIT */
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'sand-linen': '#F5F5DC',      /* Beige lino, fondo principal */
-                        'navy-charcoal': '#1e293b',   /* Gris oscuro, texto principal (autoridad) */
-                        'sky-aqua': '#A8DADC',        /* Azul espuma/turquesa suave, acento Aqua Fusion */
-                        'rose-dust': '#E0BBE4',       /* Rosa empolvado, acento Quiet Luxury */
-                        'gold-subtle': '#B8860B',     /* Dorado tenue para bordes y detalles */
-                    },
-                    fontFamily: {
-                        'serif-elegant': ['"Playfair Display"', 'serif'],
-                        'sans': ['"Inter"', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'reflection': '0 10px 30px -5px rgba(168, 218, 220, 0.4), 0 4px 15px 0 rgba(224, 187, 228, 0.2)',
-                    }
-                }
-            }
-        }
-        
-        /* Estilos CSS Base y Componentes */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F5F5DC; /* sand-linen */
-            color: #1e293b; /* navy-charcoal */
-        }
-        /* Clase para el efecto de máquina de escribir o revelación */
-        .reveal-text {
-            animation: fadeIn 1s ease-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        /* Estilo para los bloques de AdSense (visualmente integrado) */
-        .adsense-placeholder {
-            border: 1px dashed #B8860B; /* gold-subtle */
-            background-color: rgba(255, 255, 255, 0.5);
-            min-height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #888;
+        /* --- Definiciones de Color Neón para Dark Mode --- */
+        :root {
+            /* Colores Base Neón */
+            --color-neon-primary: #00f0ff; /* Cian/Aqua Neón (Para títulos, borders, progreso) */
+            --color-neon-secondary: #33ff00; /* Magenta Neón (Para texto de frases, CTAs secundarias) */
+            --color-neon-green: #00ff80; /* Lima Neón (Para CTA principal del formulario) */
+            --color-neon-shadow-dark: rgba(0, 240, 255, 0.6);
+            --color-neon-shadow-light: rgba(0, 240, 255, 0.2);
+            /* Colores Quiet Luxury (Modo Claro) */
+            --color-quiet-luxury: #a78bfa; /* Lila Suave */
+            --color-quiet-bg: #f3fcff; /* Lila Pastel */
         }
 
-        /* Estilo para la tarjeta de frase destacada */
-        .quote-card-bg {
-            background: linear-gradient(135deg, rgba(245, 245, 220, 0.8), rgba(224, 187, 228, 0.4));
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+        /* Estilos generales */
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.4s, color 0.4s;
+            position: relative;
+            overflow-x: hidden;
+            min-height: 150vh; 
+        }
+
+        /* -------------------------------------- */
+        /* --------- ESTILOS MODO CLARO --------- */
+        /* -------------------------------------- */
+        body.light-mode {
+            background-color: #08eca0; /* Fondo muy claro y limpio */
+            color: #00124e; /* Texto oscuro estándar */
+        }
+        
+        .light-mode .container-main {
+            background-color: #ffffff; /* Contenedor principal blanco */
+            border: 1px solid #000550;
+            box-shadow: 0 10px 30px rgb(255, 0, 0); /* Sombra suave y premium */
+        }
+
+        /* Borde de la Cita Central y TODAS las Frases (Lila Suave) */
+        .light-mode .quote-block,
+        .light-mode .phrase-card,
+        .light-mode section.contribution-form { /* Clase añadida al formulario de contribución */
+            border-left: 4px solid var(--color-quiet-luxury) !important; 
+            background-color: #ffffff; /* Blanco para tarjetas y modal */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); /* Sombra sutil */
+            border-top: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .light-mode .quote-block {
+            background-color: var(--color-quiet-bg); /* Fondo Lila Pastel para quote block */
+            color: #333;
+        }
+
+        /* Formulario y Bloques Secundarios */
+        .light-mode .modal-content, .light-mode #favoritesList > div, 
+        .light-mode section:not(.bg-gray-50) {
+             background-color: #ffffff; /* Blanco para tarjetas y modal */
+        }
+        
+        /* Botones de Categoría (Pills) en Light Mode */
+        .light-mode .category-pill.active {
+            background-color: var(--color-quiet-luxury) !important; /* Lila como activo */
+            color: white !important;
+            ring-color: var(--color-quiet-luxury) !important;
+        }
+
+        /* Botón de envío de frase (CTA) */
+        .light-mode #addPhraseForm button[type="submit"] {
+            background-color: #15ff00; /* Índigo sólido */
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.4);
+        }
+        
+        /* Modal CTA (Light Mode) */
+        .light-mode .modal-content a {
+            background-color: #ef4444 !important; /* Rojo vibrante */
+        }
+        
+        /* Botón Volver Arriba (Light Mode) */
+        .light-mode #scrollToTopBtn {
+            background-color: #4f46e5;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.5);
+            color: white;
+        }
+
+
+        /* -------------------------------------- */
+        /* --------- ESTILOS MODO OSCURO -------- */
+        /* -------------------------------------- */
+        body.dark-mode {
+            background-color: #000000; /* Fondo negro puro para que el neón resalte más */
+            color: #e5e7eb; 
+        }
+        
+        /* Contenedor principal con fondo muy oscuro y sutil neón */
+        .dark-mode .container-main {
+            background-color: #0d1117 !important; /* Gris oscuro profundo */
+            border: 1px solid #1f2937 !important;
+            box-shadow: 0 0 15px var(--color-neon-shadow-light); 
+        }
+
+        /* Títulos Neón (Cian/Aqua) */
+        .dark-mode h1, .dark-mode h2, .dark-mode h3 {
+            color: var(--color-neon-primary) !important; 
+            text-shadow: 0 0 4px var(--color-neon-primary), 0 0 8px var(--color-neon-shadow-dark);
+            transition: text-shadow 0.3s;
+        }
+        .dark-mode h1 {
+             text-shadow: 0 0 10px var(--color-neon-primary), 0 0 20px var(--color-neon-primary);
+        }
+        
+        /* Elementos Secundarios (Tarjetas de Frase, Quote Block, Modal, Favoritos) */
+        .dark-mode .phrase-card, 
+        .dark-mode .quote-block,
+        .dark-mode .modal-content, 
+        .dark-mode #favoritesList > div, 
+        .dark-mode section.contribution-form { /* Añadido aquí para el formulario */
+             background-color: #1a1f26 !important; /* Fondo secundario más oscuro */
+             border: 1px solid #30363d !important;
+             /* Borde Izquierdo y Sombra Neón (Magenta) */
+             border-left: 5px solid var(--color-neon-secondary) !important;
+             box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+             transition: box-shadow 0.3s ease-in-out, border-color 0.3s;
+        }
+        
+        .dark-mode .phrase-card:hover, .dark-mode .quote-block:hover {
+             box-shadow: 0 0 15px rgba(0, 240, 255, 0.6); /* Cian al hacer hover */
+        }
+
+        /* Texto de las Frases (Magenta Neón) */
+        .dark-mode .phrase-text {
+            color: var(--color-neon-secondary) !important; 
+            font-weight: 700; /* Más audaz para destacar el neón */
+            text-shadow: 0 0 3px rgba(255, 0, 255, 0.5);
+            font-style: normal;
+        }
+
+        /* Form Elements (Inputs) */
+        .dark-mode input, .dark-mode textarea, .dark-mode select {
+            background-color: #0d1117 !important; 
+            color: var(--color-neon-green) !important; /* Lima Neón en inputs */
+            border-color: #30363d !important;
+            box-shadow: 0 0 5px rgba(0, 240, 255, 0.1);
+        }
+        
+        /* Botón de envío de frase (CTA Principal - Lima Neón) */
+        .dark-mode #addPhraseForm button[type="submit"] {
+            background-color: var(--color-neon-green) !important;
+            color: #0d1117 !important; /* Texto muy oscuro sobre neón */
+            font-weight: 900 !important;
+            box-shadow: 0 0 15px rgba(0, 255, 128, 0.7);
+        }
+        .dark-mode #addPhraseForm button[type="submit"]:hover {
+            background-color: #00cc66 !important;
+        }
+        
+        /* Categorías Activas (Magenta Neón) */
+        .dark-mode .category-pill.active {
+            background-color: var(--color-neon-secondary) !important; 
+            color: #0d1117 !important;
+            box-shadow: 0 0 10px var(--color-neon-secondary), 0 0 5px var(--color-neon-secondary);
+            ring-color: var(--color-neon-primary) !important; /* Anillo Cian */
+        }
+
+        /* Botones de Reacción e Iconos de Utilidad (Cian Neón) */
+        .dark-mode .reaction-btn, .dark-mode .copy-btn, .dark-mode .favorite-btn, .dark-mode .delete-btn {
+            color: #94a3b8 !important; /* Gris azulado por defecto */
+        }
+        .dark-mode .reaction-btn:hover, .dark-mode .copy-btn:hover, .dark-mode .favorite-btn:hover, .dark-mode .delete-btn:hover {
+            color: var(--color-neon-primary) !important; /* Cian Neón al hacer hover */
+            transform: scale(1.1);
+        }
+        .dark-mode .favorite-btn.text-red-500 {
+            color: var(--color-neon-secondary) !important; /* Magenta Neón si está favorito */
+        }
+        
+        /* Barra de Progreso (Cian Neón) */
+        .dark-mode .progress-bar-container {
+            background-color: #30363d;
+        }
+        .dark-mode .progress-bar {
+            background-color: var(--color-neon-primary); 
+            color: #161b22;
+            text-shadow: 0 0 3px #161b22;
+        }
+        
+        /* Modal de Intención de Salida (Magenta CTA) */
+        .dark-mode .modal-content a {
+            background-color: var(--color-neon-secondary) !important;
+            color: #0d1117 !important;
+            box-shadow: 0 4px 15px rgba(255, 0, 255, 0.5);
+            font-weight: 900 !important;
+        }
+        
+        /* Botón Volver Arriba (Cian Neón) */
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            padding: 12px 16px;
+            border-radius: 9999px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.5rem;
+            display: none;
+        }
+        .dark-mode #scrollToTopBtn {
+            background-color: var(--color-neon-primary);
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.5);
+            color: #0d1117;
+        }
+        .dark-mode #scrollToTopBtn:hover {
+            background-color: #00ccff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 240, 255, 0.8);
+        }
+
+        /* Figuras Decorativas (Neón Sutil) */
+        .decorative-figure {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            opacity: 0.1; /* Sutil en modo claro */
+            pointer-events: none;
+            z-index: 0;
+            transition: filter 0.4s, opacity 0.4s;
+        }
+        .dark-mode .decorative-figure {
+            /* Cambio a color neón sutil sobre fondo oscuro */
+            filter: drop-shadow(0 0 8px var(--color-neon-primary)); 
+            opacity: 0.08; /* Muy sutil, solo un brillo */
+        }
+        .flower-top-left { top: 5%; left: 5%; }
+        .cloud-top-right { top: 10%; right: 5%; }
+        .dove-mid-left { top: 40%; left: 2%; }
+        .flower-bottom-right { bottom: 15%; right: 5%; }
+        .cloud-bottom-left { bottom: 5%; left: 10%; }
+        
+        /* Reset de colores para el icono activo en dark mode */
+        .dark-mode .category-pill.active span {
+            color: #0d1117 !important; 
         }
 
     </style>
 </head>
-<body>
+<body class="light-mode">
+    <!-- Figuras Decorativas de Fondo --><img src="https://www.svgrepo.com/show/368884/flower.svg" class="decorative-figure flower-top-left" role="presentation">
+    <img src="https://www.svgrepo.com/show/472445/cloudy.svg" class="decorative-figure cloud-top-right" role="presentation">
+    <img src="https://www.svgrepo.com/show/379684/dove.svg" class="decorative-figure dove-mid-left" role="presentation">
+    <img src="https://www.svgrepo.com/show/368884/flower.svg" class="decorative-figure flower-bottom-right" role="presentation">
+    <img src="https://www.svgrepo.com/show/472445/cloudy.svg" class="decorative-figure cloud-bottom-left" role="presentation">
 
-    <!-- Contenedor principal centrado, crucial para la optimización móvil -->
-    <div id="app" class="min-h-screen flex flex-col items-center p-4 sm:p-6 md:p-8">
+    <!-- Botón Volver Arriba --><button id="scrollToTopBtn" title="Volver al inicio">
+        ⬆️
+    </button>
 
-        <!-- 1. HEADER & HERO: Título y Frase Animada (Quiet Luxury) -->
-        <header class="w-full max-w-2xl text-center mb-12 pt-4">
-            <h1 class="text-5xl md:text-6xl font-serif-elegant font-bold text-navy-charcoal mb-4 tracking-tighter">
-                Reflexiona Conmigo <span class="text-rose-dust">💭</span>
-            </h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
+    <!-- Modal de Intención de Salida --><div id="exitIntentModal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 hidden">
+        <div class="modal-content p-8 rounded-xl max-w-lg mx-4 text-center">
+            <span id="closeModal" class="absolute top-3 right-5 text-3xl font-bold cursor-pointer transition-colors hover:text-red-500">&times;</span>
+            <h3 class="text-4xl font-extrabold text-indigo-600 mb-4 dark:text-red-500">¡Espera! No te vayas...</h3>
+            <p class="text-lg text-gray-700 mb-4 dark:text-gray-300">Antes de cerrar, toma nuestro **Diario Gratuito de 7 Días**.</p>
+            <p class="text-sm text-gray-500 mb-6 dark:text-gray-400">Transforma la ansiedad en paz con ejercicios prácticos y exclusivos para la sanación.</p>
+            <!-- CTA Rojo/Magenta Neón --><a href="#descarga-gratuita" class="inline-block bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg shadow-xl transition duration-200" onclick="document.getElementById('exitIntentModal').style.display='none';">
+                🚀 Descarga tu Diario GRATIS
+            </a>
+        </div>
+    </div>
+
+    <!-- Contenedor Principal Centrado --><div class="container-main max-w-4xl mx-auto p-4 md:p-8 rounded-xl shadow-2xl mt-6 relative z-10">
+
+        <!-- Banner Superior y Controles --><header class="text-center py-6 border-b border-gray-200 dark:border-gray-700">
+            <div class="flex justify-between items-center mb-6">
+                <!-- Botón de Modo Oscuro --><button id="darkModeToggle" class="p-2 rounded-full transition-colors bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 shadow-md">
+                    <span id="sunIcon" style="display:none;">☀️</span>
+                    <span id="moonIcon" style="display:inline-block;">🌙</span>
+                </button>
+                <h1 class="text-5xl font-extrabold text-indigo-600 tracking-tight mx-4">
+                    Reflexiona Conmigo 💭
+                </h1>
+                <div class="w-12"></div> <!-- Espaciador --></div>
+            
+            <p class="text-lg text-gray-600 font-light dark:text-gray-400">
                 Tu espacio de calma y empoderamiento en el camino del desamor y el crecimiento.
             </p>
 
-            <!-- Bloque de Frase Animada (Simulando el efecto de máquina de escribir/revelación) -->
-            <div class="quote-card-bg rounded-xl p-6 shadow-reflection transition-all duration-500 min-h-[150px] flex flex-col justify-center">
-                <p id="animated-quote" class="text-xl md:text-2xl font-serif-elegant italic text-navy-charcoal reveal-text"></p>
-                <p id="quote-author" class="mt-4 text-sm text-gray-500 font-sans opacity-75"></p>
+            <!-- BARRA DE PROGRESO DE SANACIÓN --><div class="mt-6">
+                <h3 class="text-lg font-semibold text-gray-700 mb-2 dark:text-gray-300 flex items-center justify-center">
+                    <span class="mr-2">🌱</span> Progreso de Sanación
+                </h3>
+                <div class="progress-bar-container bg-gray-200 rounded-full h-3.5 shadow-inner">
+                    <div id="healingProgressBar" class="progress-bar h-3.5 text-xs flex items-center justify-center rounded-full transition-all duration-500" style="width: 0%;">0%</div>
+                </div>
+                <p class="text-xs text-gray-500 mt-1 dark:text-gray-400">Sigue interactuando para completar tu renacimiento.</p>
             </div>
         </header>
 
-        <!-- Bloque de AdSense Superior (Elegante y no intrusivo) -->
-        <div class="w-full max-w-2xl mb-12">
-            <div class="adsense-placeholder rounded-lg p-4">
-                [Espacio optimizado para Google AdSense - 300x250 o Adaptable]
-            </div>
+        <!-- Bloque de Cita Central (Con Lila Pastel en Modo Claro y Magenta Neón en Oscuro) --><div class="bg-white p-6 rounded-xl shadow-lg my-8 quote-block">
+            <blockquote class="text-xl italic text-gray-800 leading-relaxed pl-4 dark:text-gray-200 phrase-text">
+                "No me siento sola, me siento poderosa. Hay una gran diferencia."
+            </blockquote>
+            <p class="mt-3 text-sm font-semibold text-indigo-600 text-right dark:text-indigo-400">
+                — Empoderamiento Post-Ruptura
+            </p>
         </div>
 
-        <!-- 2. SECCIÓN DE CATEGORÍAS (Aqua Fusion + Quiet Luxury) -->
-        <section class="w-full max-w-2xl mb-12">
-            <h2 class="text-3xl font-serif-elegant font-semibold text-center mb-8">
-                Encuentra tu Sentir
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- Tarjeta: Amor -->
-                <a href="#amor" class="p-4 bg-rose-dust/30 rounded-xl flex flex-col items-center transition-all hover:shadow-reflection hover:scale-[1.03] duration-300 transform hover:bg-rose-dust/50">
-                    <span class="text-4xl mb-2">💕</span>
-                    <span class="font-sans font-medium text-navy-charcoal">Amor</span>
-                </a>
-                <!-- Tarjeta: Desamor -->
-                <a href="#desamor" class="p-4 bg-sky-aqua/30 rounded-xl flex flex-col items-center transition-all hover:shadow-reflection hover:scale-[1.03] duration-300 transform hover:bg-sky-aqua/50">
-                    <span class="text-4xl mb-2">💔</span>
-                    <span class="font-sans font-medium text-navy-charcoal">Desamor</span>
-                </a>
-                <!-- Tarjeta: Motivación -->
-                <a href="#motivacion" class="p-4 bg-sand-linen/80 rounded-xl flex flex-col items-center transition-all hover:shadow-reflection hover:scale-[1.03] duration-300 transform border border-gold-subtle/30 hover:border-gold-subtle/70">
-                    <span class="text-4xl mb-2">🌅</span>
-                    <span class="font-sans font-medium text-navy-charcoal">Motivación</span>
-                </a>
-                <!-- Tarjeta: Crecimiento -->
-                <a href="#crecimiento" class="p-4 bg-sky-aqua/50 rounded-xl flex flex-col items-center transition-all hover:shadow-reflection hover:scale-[1.03] duration-300 transform hover:bg-sky-aqua/70">
-                    <span class="text-4xl mb-2">🌿</span>
-                    <span class="font-sans font-medium text-navy-charcoal">Crecimiento</span>
-                </a>
-            </div>
-        </section>
-        
-        <!-- 3. SECCIÓN DE PUBLICACIONES DESTACADAS (Listado de Frases) -->
-        <section class="w-full max-w-2xl mb-12">
-            <h2 class="text-3xl font-serif-elegant font-semibold text-center mb-8" id="frases-destacadas">
-                Frases de Sanación y Empoderamiento
-            </h2>
-            <div class="space-y-6">
-                
-                <!-- Tarjeta de Frase 1: Desamor/Validación del Dolor -->
-                <article class="p-6 rounded-xl shadow-md border-t-4 border-rose-dust bg-white hover:shadow-reflection transition duration-300">
-                    <p class="text-xl font-serif-elegant text-navy-charcoal italic mb-4">
-                        "La lección más grande del desamor no es aprender a vivir sin él, sino aprender a vivir con amor propio."
-                    </p>
-                    <footer class="flex justify-between items-center text-sm text-gray-500">
-                        <span class="font-semibold text-rose-dust">#Desamor</span>
-                        <div class="flex space-x-3">
-                            <!-- Botones de Compartir ACTUALIZADOS con iconos SVG para mejor UX/estética -->
-                            <button class="hover:text-sky-aqua transition" title="Compartir en TikTok">
-                                <!-- Icono de TikTok simple -->
-                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.52 2.37A6.87 6.87 0 0 1 22 7.72v3.62c0 .48-.25.86-.71.86a.65.65 0 0 1-.65-.65V8.1a4.92 4.92 0 0 0-4.9-4.9c-.38 0-.69.3-.69.69a.69.69 0 0 1-.69.69h-1.39a.69.69 0 0 1-.69-.69 2.05 2.05 0 0 0-2.06-2c-1.12 0-2 .88-2 2a.69.69 0 0 1-.69.69H7.9a.69.69 0 0 1-.69-.69c0-1.63 1.35-2.95 3-2.95a3.42 3.42 0 0 1 3.46 3.46v7.35a.69.69 0 0 1-.69.69h-2.12c-.17 0-.3-.14-.3-.3v-6.38a.69.69 0 0 0-.69-.69H8.64a.69.69 0 0 0-.69.69v6.38c0 .17-.14.3-.3.3H5.5c-1.63 0-3-1.35-3-3V11.33c0-.38.3-.69.69-.69h1.38a.69.69 0 0 1 .69.69v5.6c0 .38.3.69.69.69h.69a.69.69 0 0 1 .69.69v1.38c0 .38.3.69.69.69h4.14c.38 0 .69-.3.69-.69v-1.38c0-.38.3-.69.69-.69h.69c1.63 0 3-1.35 3-3V7.72c0-1.63-1.35-2.95-3-2.95h-1.39a.69.69 0 0 1-.69-.69z"/></svg>
-                            </button>
-                            <button class="hover:text-rose-dust transition" title="Compartir en Instagram">
-                                <!-- Icono de Instagram simple -->
-                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.36 4.67c.3 0 .54.24.54.54v6.78c0 .3-.24.54-.54.54h-6.72c-.3 0-.54-.24-.54-.54V7.21c0-.3.24-.54.54-.54h6.72zm-3.36 1.83c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm4.1-3.69c0 .41-.34.75-.75.75H8.31c-.41 0-.75-.34-.75-.75V6.62c0-.41.34-.75.75-.75h6.78c.41 0 .75.34.75.75v.55z"/></svg>
-                            </button>
-                            <button class="hover:text-gold-subtle transition" title="Compartir en Pinterest">
-                                <!-- Icono de Pinterest simple -->
-                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.19 2.72 7.74 6.54 9.07.48.09.65-.21.65-.48v-2.03c-2.65.58-3.21-1.28-3.21-1.28-.43-1.08-1.06-1.36-1.06-1.36-.87-.6.07-.6.07-.6 1.13.07 1.73 1.16 1.73 1.16 1 1.73 2.62 1.23 3.25.94.1-.73.39-1.23.71-1.52-2.48-.28-5.08-1.24-5.08-5.5 0-1.22.43-2.22 1.14-3-.12-.28-.5-1.42.11-2.95 0 0 .93-.3 3.05 1.14A10.84 10.84 0 0 1 12 5.86c.92 0 1.85.12 2.73.35 2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.71.78 1.14 1.78 1.14 3 0 4.26-2.6 5.22-5.08 5.5.39.34.75.94.75 1.9V21c0 .27.17.57.65.48C19.28 19.74 22 16.19 22 12c0-5.52-4.48-10-10-10z"/></svg>
-                            </button>
-                        </div>
-                    </footer>
-                </article>
+        <!-- Secciones Principales --><main class="space-y-12">
 
-                <!-- Tarjeta de Frase 2: Crecimiento/Sorpresa/Claridad -->
-                <article class="p-6 rounded-xl shadow-md border-t-4 border-sky-aqua bg-white hover:shadow-reflection transition duration-300">
-                    <p class="text-xl font-serif-elegant text-navy-charcoal italic mb-4">
-                        "Nunca le des a nadie la oportunidad de desperdiciar tu tiempo dos veces."
-                    </p>
-                    <footer class="flex justify-between items-center text-sm text-gray-500">
-                        <span class="font-semibold text-sky-aqua">#Crecimiento</span>
-                        <div class="flex space-x-3">
-                             <!-- Botones de Compartir ACTUALIZADOS con iconos SVG -->
-                            <button class="hover:text-sky-aqua transition" title="Compartir en TikTok">
-                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.52 2.37A6.87 6.87 0 0 1 22 7.72v3.62c0 .48-.25.86-.71.86a.65.65 0 0 1-.65-.65V8.1a4.92 4.92 0 0 0-4.9-4.9c-.38 0-.69.3-.69.69a.69.69 0 0 1-.69.69h-1.39a.69.69 0 0 1-.69-.69 2.05 2.05 0 0 0-2.06-2c-1.12 0-2 .88-2 2a.69.69 0 0 1-.69.69H7.9a.69.69 0 0 1-.69-.69c0-1.63 1.35-2.95 3-2.95a3.42 3.42 0 0 1 3.46 3.46v7.35a.69.69 0 0 1-.69.69h-2.12c-.17 0-.3-.14-.3-.3v-6.38a.69.69 0 0 0-.69-.69H8.64a.69.69 0 0 0-.69.69v6.38c0 .17-.14.3-.3.3H5.5c-1.63 0-3-1.35-3-3V11.33c0-.38.3-.69.69-.69h1.38a.69.69 0 0 1 .69.69v5.6c0 .38.3.69.69.69h.69a.69.69 0 0 1 .69.69v1.38c0 .38.3.69.69.69h4.14c.38 0 .69-.3.69-.69v-1.38c0-.38.3-.69.69-.69h.69c1.63 0 3-1.35 3-3V7.72c0-1.63-1.35-2.95-3-2.95h-1.39a.69.69 0 0 1-.69-.69z"/></svg>
-                            </button>
-                            <button class="hover:text-rose-dust transition" title="Compartir en Instagram">
-                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.36 4.67c.3 0 .54.24.54.54v6.78c0 .3-.24.54-.54.54h-6.72c-.3 0-.54-.24-.54-.54V7.21c0-.3.24-.54.54-.54h6.72zm-3.36 1.83c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm4.1-3.69c0 .41-.34.75-.75.75H8.31c-.41 0-.75-.34-.75-.75V6.62c0-.41.34-.75.75-.75h6.78c.41 0 .75.34.75.75v.55z"/></svg>
-                            </button>
-                            <button class="hover:text-gold-subtle transition" title="Compartir en Pinterest">
-                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.19 2.72 7.74 6.54 9.07.48.09.65-.21.65-.48v-2.03c-2.65.58-3.21-1.28-3.21-1.28-.43-1.08-1.06-1.36-1.06-1.36-.87-.6.07-.6.07-.6 1.13.07 1.73 1.16 1.73 1.16 1 1.73 2.62 1.23 3.25.94.1-.73.39-1.23.71-1.52-2.48-.28-5.08-1.24-5.08-5.5 0-1.22.43-2.22 1.14-3-.12-.28-.5-1.42.11-2.95 0 0 .93-.3 3.05 1.14A10.84 10.84 0 0 1 12 5.86c.92 0 1.85.12 2.73.35 2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.71.78 1.14 1.78 1.14 3 0 4.26-2.6 5.22-5.08 5.5.39.34.75.94.75 1.9V21c0 .27.17.57.65.48C19.28 19.74 22 16.19 22 12c0-5.52-4.48-10-10-10z"/></svg>
-                            </button>
-                        </div>
-                    </footer>
-                </article>
-
-                <!-- 4. Bloque de Afiliación (Integrado como recomendación de Producto) -->
-                <div class="bg-sand-linen/80 p-6 rounded-xl shadow-reflection border-l-4 border-gold-subtle/80">
-                    <h3 class="text-2xl font-serif-elegant font-semibold mb-3 text-gold-subtle">
-                        📚 Producto Recomendado para la Sanación
-                    </h3>
-                    <p class="text-gray-700 mb-4">
-                        Supera la ruptura con el <strong class="text-navy-charcoal">"Diario de 30 Días para Sanar el Desamor"</strong>. Una guía de acción que convierte la ansiedad en fortaleza.
-                    </p>
-                    <a href="[URL_AFILIADO_AMAZON_O_EBOOK]" target="_blank" class="inline-block px-4 py-2 bg-rose-dust text-white font-bold rounded-full transition duration-300 hover:bg-rose-dust/80 hover:shadow-lg">
-                        Ver Guía en Amazon Afiliados
-                    </a>
+            <!-- BLOQUE: Encuentra tu Sentir (Categorías de Navegación) --><section>
+                <h2 class="text-2xl font-bold text-gray-700 mb-4 border-b pb-2 dark:text-gray-300">Encuentra tu Sentir</h2>
+                <div id="categoryFilters" class="flex flex-wrap gap-3 justify-center md:justify-start">
+                    <!-- Clases de anillo actualizadas en JS para Dark Mode --><button data-filter="all" class="category-pill bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-full flex items-center shadow-md transition-all active ring-2 ring-offset-2 ring-indigo-600 dark:bg-gray-600 dark:text-white">
+                        <span class="text-xl mr-2">✨</span> Todos
+                    </button>
+                    <button data-filter="Amor" class="category-pill bg-pink-100 text-pink-700 font-semibold py-2 px-4 rounded-full flex items-center shadow-md transition-colors dark:bg-pink-900 dark:text-pink-300">
+                        <span class="text-xl mr-2">💕</span> Amor
+                    </button>
+                    <button data-filter="Desamor" class="category-pill bg-red-100 text-red-700 font-semibold py-2 px-4 rounded-full flex items-center shadow-md transition-colors dark:bg-red-900 dark:text-red-300">
+                        <span class="text-xl mr-2">💔</span> Desamor
+                    </button>
+                    <button data-filter="Motivacion" class="category-pill bg-yellow-100 text-yellow-700 font-semibold py-2 px-4 rounded-full flex items-center shadow-md transition-colors dark:bg-yellow-900 dark:text-yellow-300">
+                        <span class="text-xl mr-2">🌅</span> Motivación
+                    </button>
+                    <button data-filter="Crecimiento" class="category-pill bg-green-100 text-green-700 font-semibold py-2 px-4 rounded-full flex items-center shadow-md transition-colors dark:bg-green-900 dark:text-green-300">
+                        <span class="text-xl mr-2">🌿</span> Crecimiento
+                    </button>
+                    <button data-filter="Usuario" class="category-pill bg-blue-100 text-blue-700 font-semibold py-2 px-4 rounded-full flex items-center shadow-md transition-colors dark:bg-blue-900 dark:text-blue-300">
+                        <span class="text-xl mr-2">👤</span> Usuario
+                    </button>
                 </div>
+            </section>
+
+            <!-- BLOQUE: Frases de Sanación y Empoderamiento (Tiempo Real) --><section>
+                <h2 class="text-2xl font-bold text-gray-700 mb-6 border-b pb-2 dark:text-gray-300">Frases de la Comunidad (Tiempo Real)</h2>
                 
-                <!-- Tarjeta de Frase 3: Motivación/Acción -->
-                <article class="p-6 rounded-xl shadow-md border-t-4 border-rose-dust bg-white hover:shadow-reflection transition duration-300">
-                    <p class="text-xl font-serif-elegant text-navy-charcoal italic mb-4">
-                        "La procrastinación es el asesino silencioso de tus sueños no vividos."
-                    </p>
-                    <footer class="flex justify-between items-center text-sm text-gray-500">
-                        <span class="font-semibold text-rose-dust">#Motivación</span>
-                        <div class="flex space-x-3">
-                            <!-- Botones de Compartir ACTUALIZADOS con iconos SVG -->
-                            <button class="hover:text-sky-aqua transition" title="Compartir en TikTok">
-                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.52 2.37A6.87 6.87 0 0 1 22 7.72v3.62c0 .48-.25.86-.71.86a.65.65 0 0 1-.65-.65V8.1a4.92 4.92 0 0 0-4.9-4.9c-.38 0-.69.3-.69.69a.69.69 0 0 1-.69.69h-1.39a.69.69 0 0 1-.69-.69 2.05 2.05 0 0 0-2.06-2c-1.12 0-2 .88-2 2a.69.69 0 0 1-.69.69H7.9a.69.69 0 0 1-.69-.69c0-1.63 1.35-2.95 3-2.95a3.42 3.42 0 0 1 3.46 3.46v7.35a.69.69 0 0 1-.69.69h-2.12c-.17 0-.3-.14-.3-.3v-6.38a.69.69 0 0 0-.69-.69H8.64a.69.69 0 0 0-.69.69v6.38c0 .17-.14.3-.3.3H5.5c-1.63 0-3-1.35-3-3V11.33c0-.38.3-.69.69-.69h1.38a.69.69 0 0 1 .69.69v5.6c0 .38.3.69.69.69h.69a.69.69 0 0 1 .69.69v1.38c0 .38.3.69.69.69h4.14c.38 0 .69-.3.69-.69v-1.38c0-.38.3-.69.69-.69h.69c1.63 0 3-1.35 3-3V7.72c0-1.63-1.35-2.95-3-2.95h-1.39a.69.69 0 0 1-.69-.69z"/></svg>
-                            </button>
-                            <button class="hover:text-rose-dust transition" title="Compartir en Instagram">
-                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.36 4.67c.3 0 .54.24.54.54v6.78c0 .3-.24.54-.54.54h-6.72c-.3 0-.54-.24-.54-.54V7.21c0-.3.24-.54.54-.54h6.72zm-3.36 1.83c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm4.1-3.69c0 .41-.34.75-.75.75H8.31c-.41 0-.75-.34-.75-.75V6.62c0-.41.34-.75.75-.75h6.78c.41 0 .75.34.75.75v.55z"/></svg>
-                            </button>
-                            <button class="hover:text-gold-subtle transition" title="Compartir en Pinterest">
-                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.19 2.72 7.74 6.54 9.07.48.09.65-.21.65-.48v-2.03c-2.65.58-3.21-1.28-3.21-1.28-.43-1.08-1.06-1.36-1.06-1.36-.87-.6.07-.6.07-.6 1.13.07 1.73 1.16 1.73 1.16 1 1.73 2.62 1.23 3.25.94.1-.73.39-1.23.71-1.52-2.48-.28-5.08-1.24-5.08-5.5 0-1.22.43-2.22 1.14-3-.12-.28-.5-1.42.11-2.95 0 0 .93-.3 3.05 1.14A10.84 10.84 0 0 1 12 5.86c.92 0 1.85.12 2.73.35 2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.71.78 1.14 1.78 1.14 3 0 4.26-2.6 5.22-5.08 5.5.39.34.75.94.75 1.9V21c0 .27.17.57.65.48C19.28 19.74 22 16.19 22 12c0-5.52-4.48-10-10-10z"/></svg>
-                            </button>
+                <div class="space-y-6">
+                    
+                    <!-- CONTENEDOR DE FRASES ESTÁTICAS --><div id="staticPhrasesContainer" class="space-y-6">
+                        <!-- Frase 1: EJEMPLO ESTATICO --><!-- Añado las clases de estilo al div de la tarjeta --><div class="phrase-card bg-white p-5 rounded-xl shadow-md border border-gray-100" data-doc-id="phrase1" data-category="Desamor">
+                            <p class="text-lg italic text-gray-800 mb-3 phrase-text">
+                                "La lección más grande del desamor no es aprender a vivir sin él, sino aprender a vivir con amor propio."
+                            </p>
+                            <div class="flex justify-between items-center text-sm flex-wrap gap-2">
+                                <span class="font-medium text-indigo-600 dark:text-indigo-400">#Desamor 💔</span>
+                                <div class="flex items-center space-x-2 reaction-buttons" data-id="phrase1">
+                                    <button data-reaction="likes" class="reaction-btn text-gray-500 hover:text-blue-500 transition-colors dark:text-gray-400">
+                                        👍 <span class="count">32</span>
+                                    </button>
+                                    <button data-reaction="hearts" class="reaction-btn text-gray-500 hover:text-red-500 transition-colors dark:text-gray-400">
+                                        💖 <span class="count">50</span>
+                                    </button>
+                                    <button class="copy-btn text-gray-500 hover:text-purple-500 transition-colors ml-2 dark:text-gray-400" title="Copiar frase">
+                                        📄
+                                    </button>
+                                    <button class="favorite-btn text-gray-500 hover:text-red-600 transition-colors ml-2 dark:text-gray-400" title="Añadir a favoritos">
+                                        ⭐
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    </footer>
-                </article>
 
-            </div>
-        </section>
-
-        <!-- 5. Plantilla de Artículo Largo (Ejemplo de Página Pilar) -->
-        <section class="w-full max-w-2xl mb-12 pt-10 border-t border-gray-300" id="articulo-pilar">
-            <h2 class="text-4xl font-serif-elegant font-bold mb-4 text-center">
-                Las 100 Frases de Superación Personal más citadas
-            </h2>
-            <p class="text-center text-sm text-gray-500 mb-6">
-                Publicado el 3 de noviembre de 2025. Tiempo de lectura: 10 minutos.
-            </p>
-            
-            <!-- Simulando la Cabecera con Imagen Difuminada (para mantener un solo archivo, usamos un placeholder estilizado) -->
-            <div class="h-48 w-full rounded-xl mb-8 bg-sky-aqua/30 flex items-center justify-center relative overflow-hidden">
-                <!-- Efecto de fondo sutil (simulando imagen difuminada) -->
-                <div class="absolute inset-0 bg-cover bg-center opacity-40 blur-sm" style="background-image: url('https://placehold.co/800x400/A8DADC/EAE0C8?text=Sanación');"></div>
-                <h3 class="relative z-10 text-3xl font-serif-elegant font-bold text-navy-charcoal bg-sand-linen/80 px-4 py-2 rounded-lg shadow-md">
-                    El Viaje del Crecimiento
-                </h3>
-            </div>
-
-            <div class="prose max-w-none text-gray-700 leading-relaxed font-sans">
-                <!-- Estructura de contenido SEO: H2 y párrafos -->
-                <h2 class="text-2xl font-serif-elegant font-bold text-navy-charcoal mt-6 mb-3">
-                    Validación del Dolor: La primera fase
-                </h2>
-                <p>
-                    Según el análisis estratégico, el contenido más viral es el que valida la ansiedad y el dolor. Esta sección de la página pilar se centra en ese punto: reconocer y aceptar la dificultad del proceso de sanación. Frases como "No estoy triste, estoy en reconstrucción" resuenan profundamente con el usuario que busca validación indirecta para sus sentimientos.
-                </p>
-
-                <!-- Espacio AdSense Integrado en el Artículo (Horizontal) -->
-                <div class="w-full my-8">
-                    <div class="adsense-placeholder h-24 rounded-lg p-4">
-                        [Bloque de Anuncios Horizontal Integrado - Ideal para AdSense]
+                        <!-- Frase 2: EJEMPLO ESTATICO --><!-- Añado las clases de estilo al div de la tarjeta --><div class="phrase-card bg-white p-5 rounded-xl shadow-md border border-gray-100" data-doc-id="phrase2" data-category="Crecimiento">
+                            <p class="text-lg italic text-gray-800 mb-3 phrase-text">
+                                "Nunca le des a nadie la oportunidad de desperdiciar tu tiempo dos veces."
+                            </p>
+                            <div class="flex justify-between items-center text-sm flex-wrap gap-2">
+                                <span class="font-medium text-indigo-600 dark:text-indigo-400">#Crecimiento 🌿</span>
+                                <div class="flex items-center space-x-2 reaction-buttons" data-id="phrase2">
+                                    <button data-reaction="likes" class="reaction-btn text-gray-500 hover:text-blue-500 transition-colors dark:text-gray-400">
+                                        👍 <span class="count">25</span>
+                                    </button>
+                                    <button data-reaction="hearts" class="reaction-btn text-gray-500 hover:text-red-500 transition-colors dark:text-gray-400">
+                                        💖 <span class="count">10</span>
+                                    </button>
+                                    <button class="copy-btn text-gray-500 hover:text-purple-500 transition-colors ml-2 dark:text-gray-400" title="Copiar frase">
+                                        📄
+                                    </button>
+                                    <button class="favorite-btn text-gray-500 hover:text-red-600 transition-colors ml-2 dark:text-gray-400" title="Añadir a favoritos">
+                                        ⭐
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <!-- CONTENEDOR DE FRASES DINÁMICAS --><div id="dynamicPhrasesContainer" class="space-y-6">
+                        <!-- Las frases de Firebase aparecerán aquí --></div>
                 </div>
+            </section>
 
-                <h2 class="text-2xl font-serif-elegant font-bold text-navy-charcoal mt-6 mb-3">
-                    El Empoderamiento: La meta final
+            <!-- BLOQUE: Contribuye con tu Reflexión (Añadida clase `contribution-form`) --><section class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-indigo-600 contribution-form">
+                <h2 class="text-2xl font-bold text-gray-700 mb-4 flex items-center dark:text-gray-300">
+                    ✨ Contribuye con tu Reflexión
                 </h2>
-                <p>
-                    La transición hacia frases de empoderamiento (el final de la Narrativa del Padecer) es esencial para la conversión y la construcción de marca. El usuario encuentra aquí la solución al dolor. Es el momento perfecto para enlazar al Ebook.
-                </p>
-                <a href="[URL_AFILIADO_EBOOK]" class="block text-center mt-6 p-3 bg-sky-aqua text-navy-charcoal font-bold rounded-lg transition duration-300 hover:bg-sky-aqua/80">
-                    ¡Descarga tu Plan de 30 Días y empieza a sanar hoy!
-                </a>
-            </div>
-
-        </section>
-
-        <!-- 6. PIE DE PÁGINA (Footer) -->
-        <footer class="w-full max-w-2xl mt-12 pt-8 border-t border-gold-subtle/50 text-center">
-            <p class="text-xl font-serif-elegant italic text-gray-600 mb-6">
-                "Todo cambio comienza con una reflexión honesta."
-            </p>
+                <p class="text-gray-600 mb-4 dark:text-gray-400">Tu voz es importante. Comparte tu reflexión con nuestra comunidad.</p>
+                
+                <form id="addPhraseForm" class="space-y-4">
+                    <div>
+                        <label for="newPhraseText" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Frase:</label>
+                        <textarea 
+                            id="newPhraseText" 
+                            rows="2" 
+                            placeholder="Escribe tu frase de sanación o empoderamiento aquí..." 
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-900 dark:border-gray-700 dark:text-white" 
+                            required
+                        ></textarea>
+                    </div>
+                    
+                    <div>
+                        <label for="newPhraseCategory" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Categoría:</label>
+                        <select 
+                            id="newPhraseCategory" 
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-900 dark:border-gray-700 dark:text-white" 
+                            required
+                        >
+                            <option value="">Selecciona una categoría</option>
+                            <option value="Amor">💕 Amor</option>
+                            <option value="Desamor">💔 Desamor</option>
+                            <option value="Motivacion">🌅 Motivación</option>
+                            <option value="Crecimiento">🌿 Crecimiento</option>
+                            <option value="Usuario">👤 Usuario (Tu Aporte)</option>
+                        </select>
+                    </div>
+                    
+                    <!-- BOTÓN CTA VERDE NEÓN DE ALTO CONTRASTE --><button 
+                        type="submit" 
+                        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition duration-200 shadow-xl"
+                    >
+                        Guardar Frase Poderosa 🔮
+                    </button>
+                </form>
+                
+            </section>
             
-            <!-- Enlaces Sociales (Se mantienen los iconos externos originales para no sobrecargar el archivo con más SVGs) -->
-            <div class="flex justify-center space-x-6 mb-6">
-                <a href="[URL_TIKTOK]" target="_blank" class="text-3xl text-navy-charcoal hover:text-sky-aqua transition duration-300">
-                    <img src="https://simpleicons.org/icons/tiktok.svg" alt="TikTok" class="w-6 h-6 inline-block">
-                </a>
-                <a href="[URL_INSTAGRAM]" target="_blank" class="text-3xl text-navy-charcoal hover:text-rose-dust transition duration-300">
-                    <img src="https://simpleicons.org/icons/instagram.svg" alt="Instagram" class="w-6 h-6 inline-block">
-                </a>
-                <a href="[URL_YOUTUBE_SHORTS]" target="_blank" class="text-3xl text-navy-charcoal hover:text-red-600 transition duration-300">
-                    <img src="https://simpleicons.org/icons/youtube.svg" alt="YouTube Shorts" class="w-6 h-6 inline-block">
-                </a>
+            <!-- BLOQUE: Mis Frases Favoritas --><section class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                <h2 class="text-2xl font-bold text-gray-700 mb-4 flex items-center dark:text-gray-300">
+                    <span class="text-red-500 mr-2">❤️</span> Mis Frases Favoritas (Solo Tú)
+                </h2>
+                <div id="favoritesList" class="text-gray-500 italic dark:text-gray-400">
+                    Aún no has marcado ninguna frase como favorita. ¡Guarda las que más resuenen contigo!
+                </div>
+            </section>
+            
+            <!-- BLOQUE: Publicidad (Placeholder) --><div class="ad-block my-8 bg-gray-200 text-gray-500 dark:bg-gray-900 dark:text-gray-400 p-4 rounded-lg border border-gray-300 dark:border-gray-700 text-center">
+                📢 Bloque de Publicidad (AdSense Placeholder: Espacio optimizado para 300x250 o adaptable)
             </div>
 
-            <p class="text-xs text-gray-500">
-                &copy; 2025 Reflexiona Conmigo 💭. Todos los derechos reservados. | Estrategia Quiet Luxury & Aqua Fusion.
-            </p>
-        </footer>
+            <!-- BLOQUE: Artículo de fondo (con Prueba Social) --><section>
+                <h2 class="text-3xl font-extrabold text-gray-800 mb-2 dark:text-gray-300">Las 100 Frases de Superación Personal más citadas</h2>
+                
+                <!-- INDICADOR DE POPULARIDAD AÑADIDO --><p class="text-xs font-bold text-red-500 mb-1 dark:text-red-400">
+                    🔥 1,500 personas están leyendo esto ahora.
+                </p>
+                <p class="text-sm text-gray-500 mb-6 dark:text-gray-400">Publicado el 3 de noviembre de 2025. Tiempo de lectura: 10 minutos.</p>
 
+                <h3 class="text-xl font-bold text-gray-700 mb-3 dark:text-gray-300">El Viaje del Crecimiento</h3>
+                
+                <div class="bg-indigo-100 p-4 rounded-lg border border-indigo-300 font-semibold text-indigo-800 text-center dark:bg-indigo-900 dark:text-indigo-200">
+                    ✅ ¡Descarga tu Plan de 30 Días y toma el control de tu sanación!
+                </div>
+            </section>
+            
+            <blockquote class="text-lg italic text-center text-gray-500 pt-4 border-t border-gray-200 dark:text-gray-400 dark:border-gray-700">
+                "Todo cambio comienza con una reflexión honesta."
+            </blockquote>
+        </main>
+        
+        <!-- Pie de página --><footer class="text-center py-8 text-sm text-gray-500 mt-10 border-t border-gray-200 dark:border-gray-700 dark:text-gray-400">
+            © 2025 Reflexiona Conmigo 💭. Todos los derechos reservados. | Estrategia Quiet Luxury & Aqua Fusion (Neon Edition).
+        </footer>
     </div>
 
-    <!-- SCRIPT JS para la Animación de Frases -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Arreglo de frases para la rotación (basado en la estrategia de viralidad)
-            const quotes = [
-                { text: "Nunca le des a nadie la oportunidad de desperdiciar tu tiempo dos veces.", author: "— Anónimo (Claridad)" },
-                { text: "No me siento sola, me siento poderosa. Hay una gran diferencia.", author: "— Empoderamiento Post-Ruptura" },
-                { text: "La ansiedad es el precio que pagamos por dudar de nuestra propia fuerza.", author: "— Reflexión Profunda" },
-                { text: "Tu crecimiento personal debe ser tu prioridad, no tu pareja.", author: "— Motivación" }
-            ];
+    <!-- Firebase Initialization and Scripting --><script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot, query, updateDoc, doc, deleteDoc, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-            const quoteElement = document.getElementById('animated-quote');
-            const authorElement = document.getElementById('quote-author');
-            let currentQuoteIndex = 0;
+        // --- CONSTANTES Y VARIABLES GLOBALES ---
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
-            function animateQuote() {
-                // 1. Ocultar y limpiar para el fade-out
-                quoteElement.classList.remove('reveal-text');
-                quoteElement.style.opacity = '0';
-                authorElement.style.opacity = '0';
+        let db, auth, userId = null;
+        let isAuthReady = false;
+        
+        // Ruta de la colección pública para frases
+        const REFLECTIONS_PATH = `artifacts/${appId}/public/data/reflections`;
+        
+        // Claves de LocalStorage
+        const USER_FAVORITES_KEY = `favorites_${appId}`; 
+        const DARK_MODE_KEY = 'darkModeEnabled';
+        const PROGRESS_KEY = 'healingProgress';
+        const EXIT_INTENT_KEY = 'exitIntentShown';
 
-                // 2. Esperar un poco para el efecto de transición
-                setTimeout(() => {
-                    // 3. Actualizar contenido
-                    const quote = quotes[currentQuoteIndex];
-                    quoteElement.textContent = quote.text;
-                    authorElement.textContent = quote.author;
-                    
-                    // 4. Mostrar y añadir clase de animación (fade-in)
-                    quoteElement.classList.add('reveal-text');
-                    quoteElement.style.opacity = '1';
-                    authorElement.style.opacity = '0.75';
+        // --- REFERENCIAS DEL DOM ---
+        const staticPhrasesContainer = document.getElementById('staticPhrasesContainer');
+        const dynamicPhrasesContainer = document.getElementById('dynamicPhrasesContainer');
+        const addPhraseForm = document.getElementById('addPhraseForm');
+        const favoritesList = document.getElementById('favoritesList');
+        const progressBarElement = document.getElementById('healingProgressBar');
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        const exitIntentModal = document.getElementById('exitIntentModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const categoryFilters = document.getElementById('categoryFilters');
 
-                    // 5. Mover al siguiente índice
-                    currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
-                }, 500); // 500ms para el fade-out
+        let allPhrasesData = []; // Para almacenar todas las frases (estáticas y dinámicas) para el filtrado.
 
+        // --- FIREBASE SETUP ---
+        async function setupFirebase() {
+            if (!firebaseConfig) {
+                console.error("Firebase config no está disponible.");
+                return;
+            }
+            
+            setLogLevel('Debug');
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    userId = user.uid;
+                } else {
+                    userId = crypto.randomUUID(); 
+                }
+                isAuthReady = true;
+                
+                // Intentar autenticación con token o anónima
+                try {
+                    if (initialAuthToken) {
+                        await signInWithCustomToken(auth, initialAuthToken);
+                    } else if (!user) { // Solo si no está ya autenticado por el token
+                        await signInAnonymously(auth);
+                    }
+                } catch (error) {
+                    console.error("Error en la autenticación:", error);
+                    await signInAnonymously(auth); // Fallback a anónimo
+                }
+
+                if (db) {
+                    loadReflections();
+                    loadFavorites();
+                }
+            });
+        }
+        
+        // --- BARRA DE PROGRESO DE SANACIÓN (Local Storage) ---
+        function getProgress() {
+            const progress = localStorage.getItem(PROGRESS_KEY);
+            return Math.min(100, parseFloat(progress) || 0); // Limitar a 100
+        }
+
+        function saveProgress(value) {
+            localStorage.setItem(PROGRESS_KEY, Math.min(100, value));
+        }
+
+        function renderProgress() {
+            const progress = getProgress();
+            progressBarElement.style.width = `${progress}%`;
+            progressBarElement.textContent = `${Math.round(progress)}%`;
+            // Ajustar posición del texto dentro de la barra
+            progressBarElement.classList.toggle('justify-end', progress > 15);
+            progressBarElement.classList.toggle('justify-start', progress <= 15);
+            progressBarElement.style.paddingLeft = progress <= 15 ? '8px' : '0';
+        }
+
+        function updateProgress(increment) {
+            const currentProgress = getProgress();
+            const newProgress = currentProgress + increment;
+            saveProgress(newProgress);
+            renderProgress();
+        }
+
+
+        // --- CARGA Y RENDERIZADO DE FRASES ---
+        function renderReflection(data, id, isStatic = false) {
+            const categoryEmoji = {
+                'Amor': '💕', 'Desamor': '💔', 'Motivacion': '🌅', 'Crecimiento': '🌿', 'Usuario': '👤', 'Estática': '⭐'
+            }[data.category] || '';
+
+            const isFavorited = getFavorites().includes(id);
+            // La condición de propiedad ahora debe esperar a que userId esté cargado
+            const isOwner = isAuthReady && data.userId === userId && !isStatic;
+            
+            const deleteButtonHtml = isOwner ? `
+                <button class="delete-btn text-gray-500 hover:text-red-500 transition-colors ml-2 dark:text-gray-400" title="Eliminar frase">
+                    🗑️
+                </button>
+            ` : '';
+
+            const card = document.createElement('div');
+            // Aseguramos que TODAS las frases tengan las clases de estilo del contorno
+            card.className = "phrase-card bg-white p-5 rounded-xl shadow-md border border-gray-100 dark:bg-gray-800 dark:border-gray-700";
+            card.setAttribute('data-doc-id', id);
+            card.setAttribute('data-category', data.category);
+
+            card.innerHTML = `
+                <!-- Texto asegurado en dark:text-gray-200 para contraste (Magenta Neón) --><p class="text-lg italic text-gray-800 mb-3 phrase-text">
+                    "${data.text}"
+                </p>
+                <div class="flex justify-between items-center text-sm flex-wrap gap-2">
+                    <span class="font-medium text-indigo-600 dark:text-indigo-400">#${data.category} ${categoryEmoji}</span>
+                    <div class="flex items-center space-x-2 reaction-buttons" data-id="${id}">
+                        <!-- Botones de reacción asegurados con dark:text-gray-400 --><button data-reaction="likes" class="reaction-btn text-gray-500 hover:text-blue-500 transition-colors dark:text-gray-400">
+                            👍 <span class="count">${data.likes || 0}</span>
+                        </button>
+                        <button data-reaction="hearts" class="reaction-btn text-gray-500 hover:text-red-500 transition-colors dark:text-gray-400">
+                            💖 <span class="count">${data.hearts || 0}</span>
+                        </button>
+                        <button data-reaction="ideas" class="reaction-btn text-gray-500 hover:text-yellow-500 transition-colors ${isStatic ? 'hidden' : ''} dark:text-gray-400">
+                            💡 <span class="count">${data.ideas || 0}</span>
+                        </button>
+                        <button data-reaction="cries" class="reaction-btn text-gray-500 hover:text-gray-600 transition-colors ${isStatic ? 'hidden' : ''} dark:text-gray-400">
+                            😢 <span class="count">${data.cries || 0}</span>
+                        </button>
+                        <button class="copy-btn text-gray-500 hover:text-purple-500 transition-colors ml-2 dark:text-gray-400" title="Copiar frase">
+                            📄
+                        </button>
+                        <button class="favorite-btn ${isFavorited ? 'text-red-500' : 'text-gray-500'} hover:text-red-600 transition-colors ml-2 dark:text-gray-400" title="Añadir a favoritos">
+                            ⭐
+                        </button>
+                        ${deleteButtonHtml} 
+                    </div>
+                </div>
+            `;
+            return card;
+        }
+        
+        // Carga de reflexiones de Firebase (onSnapshot para tiempo real)
+        function loadReflections() {
+            if (!isAuthReady || !db) {
+                // Re-programar si aún no está listo
+                if (!isAuthReady) setTimeout(loadReflections, 100); 
+                return;
             }
 
-            // Iniciar la animación
-            animateQuote();
-            // Intervalo de rotación: cambia cada 6 segundos (para dar tiempo a leer)
-            setInterval(animateQuote, 6000); 
+            // 1. Obtener frases estáticas y guardarlas en allPhrasesData (solo la primera vez)
+            const staticPhrasesExist = allPhrasesData.filter(p => p.isStatic).length > 0;
+            if (!staticPhrasesExist) {
+                document.querySelectorAll('.phrase-card[data-doc-id^="phrase"]').forEach(card => {
+                    const reactionButtons = card.querySelector('.reaction-buttons');
+                    allPhrasesData.push({
+                        id: card.getAttribute('data-doc-id'),
+                        text: card.querySelector('.phrase-text').textContent.trim().replace(/"/g, ''),
+                        category: card.getAttribute('data-category'),
+                        isStatic: true,
+                        // Simular conteos para estáticos
+                        likes: parseInt(reactionButtons.querySelector('[data-reaction="likes"] .count').textContent) || 0,
+                        hearts: parseInt(reactionButtons.querySelector('[data-reaction="hearts"] .count').textContent) || 0,
+                    });
+                });
+            }
+
+            const q = query(collection(db, REFLECTIONS_PATH));
+            
+            onSnapshot(q, (snapshot) => {
+                dynamicPhrasesContainer.innerHTML = '';
+                
+                const dynamicReflections = snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data(),
+                    isStatic: false,
+                }));
+                
+                // Ordenar las dinámicas por timestamp (más recientes primero)
+                dynamicReflections.sort((a, b) => (b.timestamp?.toMillis() || 0) - (a.timestamp?.toMillis() || 0));
+                
+                // Actualizar la lista maestra
+                allPhrasesData = allPhrasesData.filter(p => p.isStatic).concat(dynamicReflections);
+
+                // Re-renderizar solo las frases dinámicas
+                dynamicReflections.forEach(reflection => {
+                    const card = renderReflection(reflection, reflection.id, false);
+                    dynamicPhrasesContainer.appendChild(card);
+                });
+                
+                // Re-adjuntar listeners y aplicar filtro
+                setupReactionListeners(); 
+                setupCopyButtons();
+                setupFavoriteButtons();
+                setupDeleteButtons();
+                // Aplicar filtro si ya se ha seleccionado uno (por defecto 'all' está activo)
+                applyFilter(categoryFilters.querySelector('.active')?.getAttribute('data-filter') || 'all');
+                loadFavorites(); // Cargar favoritos para actualizar estrellas
+
+            }, (error) => {
+                console.error("Error al cargar las reflexiones:", error);
+            });
+        }
+
+
+        // --- MANEJO DE FORMULARIO ---
+        addPhraseForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!db || !isAuthReady) {
+                console.error("Firebase no está inicializado o el usuario no está autenticado.");
+                return;
+            }
+
+            const text = document.getElementById('newPhraseText').value.trim();
+            const category = document.getElementById('newPhraseCategory').value;
+
+            if (!text || !category) {
+                console.warn("Por favor, completa ambos campos.");
+                return;
+            }
+
+            try {
+                // Agregar frase a Firestore
+                await addDoc(collection(db, REFLECTIONS_PATH), {
+                    text: text,
+                    category: category,
+                    likes: 0, hearts: 0, ideas: 0, cries: 0,
+                    userId: userId, // Usar el userId cargado en onAuthStateChanged
+                    timestamp: new Date()
+                });
+
+                addPhraseForm.reset();
+                updateProgress(10); // Aumento del 10% por añadir una frase
+                console.log("Frase añadida exitosamente y visible en tiempo real!");
+
+            } catch (error) {
+                console.error("Error al añadir la frase:", error);
+            }
         });
+
+        // --- MANEJO DE REACCIONES, COPIAR Y ELIMINAR ---
+        function setupReactionListeners() {
+            document.querySelectorAll('.reaction-btn').forEach(button => {
+                button.removeEventListener('click', handleReaction);
+                if (button.closest('.phrase-card').getAttribute('data-doc-id').startsWith('phrase')) return; // No reaccionar a estáticos
+                button.addEventListener('click', handleReaction);
+            });
+        }
+
+        async function handleReaction(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (!db) return;
+
+            const button = e.currentTarget;
+            const docId = button.closest('.reaction-buttons').getAttribute('data-id');
+            const reactionType = button.getAttribute('data-reaction');
+
+            try {
+                const reflectionRef = doc(db, REFLECTIONS_PATH, docId);
+                // Obtener el conteo actual de la UI (ya que onSnapshot lo actualizará)
+                const countSpan = button.querySelector('.count');
+                let currentCount = parseInt(countSpan.textContent) || 0;
+                
+                // Actualización optimista (onSnapshot lo corregirá o confirmará)
+                countSpan.textContent = currentCount + 1; 
+                
+                await updateDoc(reflectionRef, {
+                    [reactionType]: currentCount + 1
+                });
+                
+                updateProgress(1); // Pequeño progreso por interacción
+
+            } catch (error) {
+                console.error("Error al actualizar la reacción:", error);
+                // Revertir actualización optimista si falla (se revertirá por onSnapshot en el siguiente ciclo, pero es buena práctica)
+                // Esto es difícil de hacer con onSnapshot, mejor dejar que onSnapshot lo maneje.
+            }
+        }
+
+        function setupCopyButtons() {
+            document.querySelectorAll('.copy-btn').forEach(button => {
+                button.removeEventListener('click', handleCopyPhrase);
+                button.addEventListener('click', handleCopyPhrase);
+            });
+        }
+
+        async function handleCopyPhrase(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const button = e.currentTarget;
+            const phraseTextElement = button.closest('.phrase-card').querySelector('.phrase-text');
+            const phraseText = phraseTextElement ? phraseTextElement.textContent.trim().replace(/"/g, '') : '';
+
+            if (phraseText) {
+                try {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = phraseText;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    const success = document.execCommand('copy');
+                    textarea.remove();
+
+                    if (success) {
+                        const originalIcon = button.textContent;
+                        button.textContent = '✅';
+                        setTimeout(() => { button.textContent = originalIcon; }, 1500);
+                        updateProgress(2); // Pequeño progreso por interacción
+                    }
+                } catch (err) {
+                    console.error('Error al intentar copiar:', err);
+                }
+            }
+        }
+
+        function setupDeleteButtons() {
+            document.querySelectorAll('.delete-btn').forEach(button => {
+                button.removeEventListener('click', handleDeletePhrase);
+                button.addEventListener('click', handleDeletePhrase);
+            });
+        }
+
+        async function handleDeletePhrase(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (!db) return;
+
+            const docId = e.currentTarget.closest('.phrase-card').getAttribute('data-doc-id');
+
+            if (!docId || docId.startsWith('phrase')) {
+                console.warn("No se puede eliminar una frase estática o sin ID.");
+                return;
+            }
+
+            try {
+                const reflectionRef = doc(db, REFLECTIONS_PATH, docId);
+                // No se necesita el await aquí, onSnapshot se encargará de la actualización visual.
+                deleteDoc(reflectionRef).catch(err => console.error("Error al intentar eliminar:", err));
+                
+                // Actualizar favoritos inmediatamente 
+                let favorites = getFavorites();
+                if (favorites.includes(docId)) {
+                    favorites = favorites.filter(id => id !== docId);
+                    saveFavorites(favorites);
+                    loadFavorites();
+                }
+                updateProgress(-10); // Disminución de progreso por eliminar una frase
+
+            } catch (error) {
+                console.error("Error al eliminar la frase:", error);
+            }
+        }
+
+
+        // --- MANEJO DE FAVORITOS ---
+        function getFavorites() {
+            try {
+                const stored = localStorage.getItem(USER_FAVORITES_KEY);
+                return stored ? JSON.parse(stored) : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveFavorites(favorites) {
+            try {
+                localStorage.setItem(USER_FAVORITES_KEY, JSON.stringify(favorites));
+            } catch (e) {
+                console.error("Error al guardar favoritos en localStorage", e);
+            }
+        }
+
+        function toggleFavorite(phraseId, buttonElement) {
+            let favorites = getFavorites();
+            let isFavorited = favorites.includes(phraseId);
+            
+            if (isFavorited) {
+                favorites = favorites.filter(id => id !== phraseId);
+                if (buttonElement) { 
+                    buttonElement.classList.remove('text-red-500');
+                    buttonElement.classList.add('text-gray-500', 'dark:text-gray-400'); // Añadir color secundario
+                }
+                updateProgress(-5); // Disminución del 5% al quitar favorito
+            } else {
+                favorites.push(phraseId);
+                if (buttonElement) {
+                    buttonElement.classList.add('text-red-500');
+                    buttonElement.classList.remove('text-gray-500', 'dark:text-gray-400'); // Quitar color secundario al ser activo
+                }
+                updateProgress(5); // Aumento del 5% al añadir favorito
+            }
+            saveFavorites(favorites);
+            loadFavorites(); 
+        }
+
+        function setupFavoriteButtons() {
+            document.querySelectorAll('.favorite-btn').forEach(button => {
+                button.removeEventListener('click', handleFavoriteClick);
+                button.addEventListener('click', handleFavoriteClick);
+                
+                const docId = button.closest('.phrase-card').getAttribute('data-doc-id');
+                const isFavorited = getFavorites().includes(docId);
+                
+                // Asegurar que el estado visual del botón coincida con localStorage
+                if (isFavorited) {
+                    button.classList.add('text-red-500');
+                    button.classList.remove('text-gray-500', 'dark:text-gray-400'); 
+                } else {
+                    button.classList.remove('text-red-500');
+                    button.classList.add('text-gray-500', 'dark:text-gray-400'); 
+                }
+            });
+        }
+
+        function handleFavoriteClick(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const button = e.currentTarget;
+            const docId = button.closest('.phrase-card').getAttribute('data-doc-id');
+            if (docId) {
+                toggleFavorite(docId, button);
+            }
+        }
+
+        // Carga de favoritos y lista
+        async function loadFavorites() {
+            const favorites = getFavorites();
+            favoritesList.innerHTML = favorites.length === 0 
+                ? "Aún no has marcado ninguna frase como favorita. ¡Guarda las que más resuenen contigo!"
+                : '';
+            
+            if (favorites.length === 0) return;
+
+            // Filtrar frases que existen en allPhrasesData (estáticas o dinámicas)
+            const favoritePhrasesData = allPhrasesData.filter(p => favorites.includes(p.id));
+            
+            favoritesList.innerHTML = ''; // Limpiar y rellenar
+            favoritePhrasesData.forEach(phrase => {
+                const favItem = document.createElement('div');
+                // Clase de alto contraste en dark mode para el item de favorito
+                favItem.className = "bg-gray-100 p-3 rounded-lg shadow-sm mb-2 flex justify-between items-center dark:bg-gray-800 dark:border-gray-700";
+                favItem.innerHTML = `
+                    <!-- Texto asegurado en dark:text-gray-200 (Magenta Neón) --><p class="text-md italic text-gray-800 dark:text-gray-200 phrase-text">"${phrase.text}"</p>
+                    <button class="remove-fav-btn text-red-400 hover:text-red-600 ml-3" data-id="${phrase.id}" title="Eliminar de favoritos">
+                        ❌
+                    </button>
+                `;
+                favoritesList.appendChild(favItem);
+            });
+
+            document.querySelectorAll('.remove-fav-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const idToRemove = e.currentTarget.getAttribute('data-id');
+                    const phraseButton = document.querySelector(`.phrase-card[data-doc-id="${idToRemove}"] .favorite-btn`);
+                    // Se llama a toggleFavorite (incluso si phraseButton es null) para asegurar que el localStorage se limpie
+                    toggleFavorite(idToRemove, phraseButton); 
+                });
+            });
+        }
+        
+        // --- FILTRADO DE CATEGORÍAS ---
+        function applyFilter(category) {
+            // Eliminar clases activas de todos los botones
+            document.querySelectorAll('.category-pill').forEach(btn => btn.classList.remove('active', 'ring-2', 'ring-offset-2', 'ring-indigo-600', 'dark:ring-indigo-300', 'dark:ring-[var(--color-neon-primary)]'));
+            
+            // Añadir clase activa al botón pulsado
+            const activeBtn = document.querySelector(`[data-filter="${category}"]`);
+            if (activeBtn) {
+                 // Añadir clases para el anillo neón/quiet luxury
+                 const isDarkMode = document.body.classList.contains('dark-mode');
+                 activeBtn.classList.add('active', 'ring-2', 'ring-offset-2');
+                 if (isDarkMode) {
+                    // Neón: Cian para el anillo
+                    activeBtn.classList.add('dark:ring-[var(--color-neon-primary)]'); 
+                    activeBtn.classList.remove('ring-indigo-600'); 
+                 } else {
+                    // Quiet Luxury: Índigo para el anillo
+                    activeBtn.classList.add('ring-indigo-600');
+                    activeBtn.classList.remove('dark:ring-[var(--color-neon-primary)]');
+                 }
+            }
+
+            // Filtrar frases estáticas y dinámicas
+            document.querySelectorAll('.phrase-card').forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
+        categoryFilters.addEventListener('click', (e) => {
+            if (e.target.closest('button')) {
+                const category = e.target.closest('button').getAttribute('data-filter');
+                applyFilter(category);
+            }
+        });
+
+        // --- BOTÓN 'VOLVER ARRIBA' ---
+        function handleScroll() {
+            // Muestra el botón solo si el scroll vertical es mayor a 300px
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+        scrollToTopBtn.addEventListener('click', () => {
+            // Desplazamiento suave a la parte superior de la página
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // --- POP-UP DE INTENCIÓN DE SALIDA ---
+        function handleMouseLeave(e) {
+            // Detecta si el cursor salió por la parte superior (clientY < 50) y si el modal no se ha mostrado antes
+            if (e.clientY < 50 && !localStorage.getItem(EXIT_INTENT_KEY)) {
+                // Verificar si el modal ya está visible
+                if (exitIntentModal.classList.contains('hidden')) {
+                    exitIntentModal.classList.remove('hidden');
+                    exitIntentModal.style.display = 'flex'; // Usar flex para centrar
+                    // Marca el modal como mostrado en localStorage para evitar que aparezca de nuevo
+                    localStorage.setItem(EXIT_INTENT_KEY, 'true'); 
+                    document.removeEventListener('mouseleave', handleMouseLeave); 
+                }
+            }
+        }
+
+        // Solo activa el listener si el modal no se ha mostrado
+        if (!localStorage.getItem(EXIT_INTENT_KEY)) {
+            document.addEventListener('mouseleave', handleMouseLeave);
+        }
+
+        // Cierra el modal al hacer clic en el botón X
+        closeModalBtn.addEventListener('click', () => {
+            exitIntentModal.style.display = 'none';
+            exitIntentModal.classList.add('hidden');
+        });
+
+        // Cierra el modal al hacer clic en el fondo gris oscuro
+        exitIntentModal.addEventListener('click', (e) => {
+            if (e.target === exitIntentModal) {
+                exitIntentModal.style.display = 'none';
+                exitIntentModal.classList.add('hidden');
+            }
+        });
+        
+        // --- MODO OSCURO ---
+        function initializeDarkMode() {
+            const isDarkMode = localStorage.getItem(DARK_MODE_KEY) === 'true';
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            document.body.classList.toggle('light-mode', !isDarkMode);
+            sunIcon.style.display = isDarkMode ? 'inline-block' : 'none';
+            moonIcon.style.display = isDarkMode ? 'none' : 'inline-block';
+        }
+
+        function toggleDarkMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            document.body.classList.toggle('light-mode', !isDarkMode);
+            
+            localStorage.setItem(DARK_MODE_KEY, isDarkMode);
+            sunIcon.style.display = isDarkMode ? 'inline-block' : 'none';
+            moonIcon.style.display = isDarkMode ? 'none' : 'inline-block';
+            
+            // Re-aplicar filtro para asegurar el anillo lila en el botón activo se adapte al modo
+            const activeFilter = categoryFilters.querySelector('.active')?.getAttribute('data-filter') || 'all';
+            applyFilter(activeFilter);
+        }
+
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+
+
+        // --- INICIO DE LA APLICACIÓN ---
+        window.onload = function() {
+            initializeDarkMode(); 
+            renderProgress();     
+            setupFirebase();      
+            
+            applyFilter('all');
+        };
+
     </script>
 </body>
 </html>
