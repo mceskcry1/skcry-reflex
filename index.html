@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflexiona Conmigo 💭 | Frases de Desamor, Motivación y Crecimiento Personal</title>
+    <!-- Meta Keywords y Descripción para SEO Inicial -->
+    <meta name="description" content="Las mejores frases de amor, desamor y superación personal. Encuentra claridad y empoderamiento para tu crecimiento personal.">
+    <meta name="keywords" content="frases de desamor, motivación, superación, crecimiento personal, quiet luxury, reflexiona">
+
+    <!-- Carga de Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Google Fonts: Playfair Display (Serif Elegante) e Inter (Sans Legible) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Configuración de paleta de colores personalizada con Tailwind JIT */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sand-linen': '#F5F5DC',      /* Beige lino, fondo principal */
+                        'navy-charcoal': '#1e293b',   /* Gris oscuro, texto principal (autoridad) */
+                        'sky-aqua': '#A8DADC',        /* Azul espuma/turquesa suave, acento Aqua Fusion */
+                        'rose-dust': '#E0BBE4',       /* Rosa empolvado, acento Quiet Luxury */
+                        'gold-subtle': '#B8860B',     /* Dorado tenue para bordes y detalles */
+                    },
+                    fontFamily: {
+                        'serif-elegant': ['"Playfair Display"', 'serif'],
+                        'sans': ['"Inter"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'reflection': '0 10px 30px -5px rgba(168, 218, 220, 0.4), 0 4px 15px 0 rgba(224, 187, 228, 0.2)',
+                    }
+                }
+            }
+        }
+        
+        /* Estilos CSS Base y Componentes */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F5DC; /* sand-linen */
+            color: #1e293b; /* navy-charcoal */
+        }
+        /* Clase para el efecto de máquina de escribir o revelación */
+        .reveal-text {
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Estilo para los bloques de AdSense (visualmente integrado) */
+        .adsense-placeholder {
+            border: 1px dashed #B8860B; /* gold-subtle */
+            background-color: rgba(255, 255, 255, 0.5);
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Estilo para la tarjeta de frase destacada */
+        .quote-card-bg {
+            background: linear-gradient(135deg, rgba(245, 245, 220, 0.8), rgba(224, 187, 228, 0.4));
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Contenedor principal centrado, crucial para la optimización móvil -->
+    <div id="app" class="min-h-screen flex flex-col items-center p-4 sm:p-6 md:p-8">
+
+        <!-- 1. HEADER & HERO: Título y Frase Animada (Quiet Luxury) -->
+        <header class="w-full max-w-2xl text-center mb-12 pt-4">
+            <h1 class="text-5xl md:text-6xl font-serif-elegant font-bold text-navy-charcoal mb-4 tracking-tighter">
+                Reflexiona Conmigo <span class="text-rose-dust">💭</span>
+            </h1>
+            <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
+                Tu espacio de calma y empoderamiento en el camino del desamor y el crecimiento.
+            </p>
+
+            <!-- Bloque de Frase Animada (Simulando el efecto de máquina de escribir/revelación) -->
+            <div class="quote-card-bg rounded-xl p-6 shadow-reflection transition-all duration-500 min-h-[150px] flex flex-col justify-center">
+                <p id="animated-quote" class="text-xl md:text-2xl font-serif-elegant italic text-navy-charcoal reveal-text"></p>
+                <p id="quote-author" class="mt-4 text-sm text-gray-500 font-sans opacity-75"></p>
+            </div>
+        </header>
+
+        <!-- Bloque de AdSense Superior (Elegante y no intrusivo) -->
+        <div class="w-full max-w-2xl mb-12">
+            <div class="adsense-placeholder rounded-lg p-4">
+                [Espacio optimizado para Google AdSense - 300x250 o Adaptable]
+            </div>
+        </div>
+
+        <!-- 2. SECCIÓN DE CATEGORÍAS (Aqua Fusion + Quiet Luxury) -->
+        <section class="w-full max-w-2xl mb-12">
+            <h2 class="text-3xl font-serif-elegant font-semibold text-center mb-8">
+                Encuentra tu Sentir
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Tarjeta: Amor -->
+                <a href="#amor" class="p-4 bg-rose-dust/30 rounded-xl flex flex-col items-center transition-all hover:shadow-reflection hover:scale-[1.03] duration-300 transform hover:bg-rose-dust/50">
+                    <span class="text-4xl mb-2">💕</span>
+                    <span class="font-sans font-medium text-navy-charcoal">Amor</span>
+                </a>
+                <!-- Tarjeta: Desamor -->
+                <a href="#desamor" class="p-4 bg-sky-aqua/30 rounded-xl flex flex-col items-center transition-all hover:shadow-reflection hover:scale-[1.03] duration-300 transform hover:bg-sky-aqua/50">
+                    <span class="text-4xl mb-2">💔</span>
+                    <span class="font-sans font-medium text-navy-charcoal">Desamor</span>
+                </a>
+                <!-- Tarjeta: Motivación -->
+                <a href="#motivacion" class="p-4 bg-sand-linen/80 rounded-xl flex flex-col items-center transition-all hover:shadow-reflection hover:scale-[1.03] duration-300 transform border border-gold-subtle/30 hover:border-gold-subtle/70">
+                    <span class="text-4xl mb-2">🌅</span>
+                    <span class="font-sans font-medium text-navy-charcoal">Motivación</span>
+                </a>
+                <!-- Tarjeta: Crecimiento -->
+                <a href="#crecimiento" class="p-4 bg-sky-aqua/50 rounded-xl flex flex-col items-center transition-all hover:shadow-reflection hover:scale-[1.03] duration-300 transform hover:bg-sky-aqua/70">
+                    <span class="text-4xl mb-2">🌿</span>
+                    <span class="font-sans font-medium text-navy-charcoal">Crecimiento</span>
+                </a>
+            </div>
+        </section>
+        
+        <!-- 3. SECCIÓN DE PUBLICACIONES DESTACADAS (Listado de Frases) -->
+        <section class="w-full max-w-2xl mb-12">
+            <h2 class="text-3xl font-serif-elegant font-semibold text-center mb-8" id="frases-destacadas">
+                Frases de Sanación y Empoderamiento
+            </h2>
+            <div class="space-y-6">
+                
+                <!-- Tarjeta de Frase 1: Desamor/Validación del Dolor -->
+                <article class="p-6 rounded-xl shadow-md border-t-4 border-rose-dust bg-white hover:shadow-reflection transition duration-300">
+                    <p class="text-xl font-serif-elegant text-navy-charcoal italic mb-4">
+                        "La lección más grande del desamor no es aprender a vivir sin él, sino aprender a vivir con amor propio."
+                    </p>
+                    <footer class="flex justify-between items-center text-sm text-gray-500">
+                        <span class="font-semibold text-rose-dust">#Desamor</span>
+                        <div class="flex space-x-3">
+                            <!-- Botones de Compartir (Usando íconos sencillos) -->
+                            <button class="hover:text-sky-aqua transition">TikTok</button>
+                            <button class="hover:text-rose-dust transition">Instagram</button>
+                            <button class="hover:text-gold-subtle transition">Pinterest</button>
+                        </div>
+                    </footer>
+                </article>
+
+                <!-- Tarjeta de Frase 2: Crecimiento/Sorpresa/Claridad -->
+                <article class="p-6 rounded-xl shadow-md border-t-4 border-sky-aqua bg-white hover:shadow-reflection transition duration-300">
+                    <p class="text-xl font-serif-elegant text-navy-charcoal italic mb-4">
+                        "Nunca le des a nadie la oportunidad de desperdiciar tu tiempo dos veces."
+                    </p>
+                    <footer class="flex justify-between items-center text-sm text-gray-500">
+                        <span class="font-semibold text-sky-aqua">#Crecimiento</span>
+                        <div class="flex space-x-3">
+                            <button class="hover:text-sky-aqua transition">TikTok</button>
+                            <button class="hover:text-rose-dust transition">Instagram</button>
+                            <button class="hover:text-gold-subtle transition">Pinterest</button>
+                        </div>
+                    </footer>
+                </article>
+
+                <!-- 4. Bloque de Afiliación (Integrado como recomendación de Producto) -->
+                <div class="bg-sand-200 p-6 rounded-xl shadow-reflection border-l-4 border-gold-subtle/80">
+                    <h3 class="text-2xl font-serif-elegant font-semibold mb-3 text-gold-subtle">
+                        📚 Producto Recomendado para la Sanación
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        Supera la ruptura con el <strong class="text-navy-charcoal">"Diario de 30 Días para Sanar el Desamor"</strong>. Una guía de acción que convierte la ansiedad en fortaleza.
+                    </p>
+                    <a href="[URL_AFILIADO_AMAZON_O_EBOOK]" target="_blank" class="inline-block px-4 py-2 bg-rose-dust text-white font-bold rounded-full transition duration-300 hover:bg-rose-dust/80 hover:shadow-lg">
+                        Ver Guía en Amazon Afiliados
+                    </a>
+                </div>
+                
+                <!-- Tarjeta de Frase 3: Motivación/Acción -->
+                <article class="p-6 rounded-xl shadow-md border-t-4 border-rose-dust bg-white hover:shadow-reflection transition duration-300">
+                    <p class="text-xl font-serif-elegant text-navy-charcoal italic mb-4">
+                        "La procrastinación es el asesino silencioso de tus sueños no vividos."
+                    </p>
+                    <footer class="flex justify-between items-center text-sm text-gray-500">
+                        <span class="font-semibold text-rose-dust">#Motivación</span>
+                        <div class="flex space-x-3">
+                            <button class="hover:text-sky-aqua transition">TikTok</button>
+                            <button class="hover:text-rose-dust transition">Instagram</button>
+                            <button class="hover:text-gold-subtle transition">Pinterest</button>
+                        </div>
+                    </footer>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 5. Plantilla de Artículo Largo (Ejemplo de Página Pilar) -->
+        <section class="w-full max-w-2xl mb-12 pt-10 border-t border-gray-300" id="articulo-pilar">
+            <h2 class="text-4xl font-serif-elegant font-bold mb-4 text-center">
+                Las 100 Frases de Superación Personal más citadas
+            </h2>
+            <p class="text-center text-sm text-gray-500 mb-6">
+                Publicado el 3 de noviembre de 2025. Tiempo de lectura: 10 minutos.
+            </p>
+            
+            <!-- Simulando la Cabecera con Imagen Difuminada (para mantener un solo archivo, usamos un placeholder estilizado) -->
+            <div class="h-48 w-full rounded-xl mb-8 bg-sky-aqua/30 flex items-center justify-center relative overflow-hidden">
+                <!-- Efecto de fondo sutil (simulando imagen difuminada) -->
+                <div class="absolute inset-0 bg-cover bg-center opacity-40 blur-sm" style="background-image: url('https://placehold.co/800x400/A8DADC/EAE0C8?text=Sanación');"></div>
+                <h3 class="relative z-10 text-3xl font-serif-elegant font-bold text-navy-charcoal bg-sand-linen/80 px-4 py-2 rounded-lg shadow-md">
+                    El Viaje del Crecimiento
+                </h3>
+            </div>
+
+            <div class="prose max-w-none text-gray-700 leading-relaxed font-sans">
+                <!-- Estructura de contenido SEO: H2 y párrafos -->
+                <h2 class="text-2xl font-serif-elegant font-bold text-navy-charcoal mt-6 mb-3">
+                    Validación del Dolor: La primera fase
+                </h2>
+                <p>
+                    Según el análisis estratégico, el contenido más viral es el que valida la ansiedad y el dolor. Esta sección de la página pilar se centra en ese punto: reconocer y aceptar la dificultad del proceso de sanación. Frases como "No estoy triste, estoy en reconstrucción" resuenan profundamente con el usuario que busca validación indirecta para sus sentimientos.
+                </p>
+
+                <!-- Espacio AdSense Integrado en el Artículo (Horizontal) -->
+                <div class="w-full my-8">
+                    <div class="adsense-placeholder h-24 rounded-lg p-4">
+                        [Bloque de Anuncios Horizontal Integrado - Ideal para AdSense]
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-serif-elegant font-bold text-navy-charcoal mt-6 mb-3">
+                    El Empoderamiento: La meta final
+                </h2>
+                <p>
+                    La transición hacia frases de empoderamiento (el final de la Narrativa del Padecer) es esencial para la conversión y la construcción de marca. El usuario encuentra aquí la solución al dolor. Es el momento perfecto para enlazar al Ebook.
+                </p>
+                <a href="[URL_AFILIADO_EBOOK]" class="block text-center mt-6 p-3 bg-sky-aqua text-navy-charcoal font-bold rounded-lg transition duration-300 hover:bg-sky-aqua/80">
+                    ¡Descarga tu Plan de 30 Días y empieza a sanar hoy!
+                </a>
+            </div>
+
+        </section>
+
+        <!-- 6. PIE DE PÁGINA (Footer) -->
+        <footer class="w-full max-w-2xl mt-12 pt-8 border-t border-gold-subtle/50 text-center">
+            <p class="text-xl font-serif-elegant italic text-gray-600 mb-6">
+                "Todo cambio comienza con una reflexión honesta."
+            </p>
+            
+            <!-- Enlaces Sociales -->
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="[URL_TIKTOK]" target="_blank" class="text-3xl text-navy-charcoal hover:text-sky-aqua transition duration-300">
+                    <img src="https://simpleicons.org/icons/tiktok.svg" alt="TikTok" class="w-6 h-6 inline-block">
+                </a>
+                <a href="[URL_INSTAGRAM]" target="_blank" class="text-3xl text-navy-charcoal hover:text-rose-dust transition duration-300">
+                    <img src="https://simpleicons.org/icons/instagram.svg" alt="Instagram" class="w-6 h-6 inline-block">
+                </a>
+                <a href="[URL_YOUTUBE_SHORTS]" target="_blank" class="text-3xl text-navy-charcoal hover:text-red-600 transition duration-300">
+                    <img src="https://simpleicons.org/icons/youtube.svg" alt="YouTube Shorts" class="w-6 h-6 inline-block">
+                </a>
+            </div>
+
+            <p class="text-xs text-gray-500">
+                &copy; 2025 Reflexiona Conmigo 💭. Todos los derechos reservados. | Estrategia Quiet Luxury & Aqua Fusion.
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- SCRIPT JS para la Animación de Frases -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Arreglo de frases para la rotación (basado en la estrategia de viralidad)
+            const quotes = [
+                { text: "Nunca le des a nadie la oportunidad de desperdiciar tu tiempo dos veces.", author: "— Anónimo (Claridad)" },
+                { text: "No me siento sola, me siento poderosa. Hay una gran diferencia.", author: "— Empoderamiento Post-Ruptura" },
+                { text: "La ansiedad es el precio que pagamos por dudar de nuestra propia fuerza.", author: "— Reflexión Profunda" },
+                { text: "Tu crecimiento personal debe ser tu prioridad, no tu pareja.", author: "— Motivación" }
+            ];
+
+            const quoteElement = document.getElementById('animated-quote');
+            const authorElement = document.getElementById('quote-author');
+            let currentQuoteIndex = 0;
+
+            function animateQuote() {
+                // 1. Ocultar y limpiar para el fade-out
+                quoteElement.classList.remove('reveal-text');
+                quoteElement.style.opacity = '0';
+                authorElement.style.opacity = '0';
+
+                // 2. Esperar un poco para el efecto de transición
+                setTimeout(() => {
+                    // 3. Actualizar contenido
+                    const quote = quotes[currentQuoteIndex];
+                    quoteElement.textContent = quote.text;
+                    authorElement.textContent = quote.author;
+                    
+                    // 4. Mostrar y añadir clase de animación (fade-in)
+                    quoteElement.classList.add('reveal-text');
+                    quoteElement.style.opacity = '1';
+                    authorElement.style.opacity = '0.75';
+
+                    // 5. Mover al siguiente índice
+                    currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+                }, 500); // 500ms para el fade-out
+
+            }
+
+            // Iniciar la animación
+            animateQuote();
+            // Intervalo de rotación: cambia cada 6 segundos (para dar tiempo a leer)
+            setInterval(animateQuote, 6000); 
+        });
